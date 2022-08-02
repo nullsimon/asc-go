@@ -69,7 +69,7 @@ type NotificationHistoryResponseItem struct {
 
 // RequestATestNotification https://developer.apple.com/documentation/appstoreserverapi/request_a_test_notification?changes=latest_minor
 func (s *NotificationsService) RequestATestNotification(ctx context.Context, params *RequestANotificationQuery) (*TestNotificationResponse, *Response, error) {
-	HostProduction := "https://api.appstoreconnect.apple.com"
+	HostProduction := "https://api.storekit.itunes.apple.com"
 	url := HostProduction + "/inApps/v1/notifications/test"
 	res := new(TestNotificationResponse)
 	resp, err := s.client.post(ctx, url, nil, res)
@@ -80,7 +80,7 @@ func (s *NotificationsService) RequestATestNotification(ctx context.Context, par
 // GetTestNotificationStatus
 // GET https://api.storekit.itunes.apple.com/inApps/v1/notifications/test/{testNotificationToken}
 func (s *NotificationsService) GetTestNotificationStatus(ctx context.Context, testNotificationToken string) (*Response, error) {
-	HostProduction := "https://api.appstoreconnect.apple.com"
+	HostProduction := "https://api.storekit.itunes.apple.com"
 	url := HostProduction + "/inApps/v1/notifications/test/" + testNotificationToken
 	res := new(Response)
 	resp, err := s.client.get(ctx, url, nil, res)
@@ -90,7 +90,7 @@ func (s *NotificationsService) GetTestNotificationStatus(ctx context.Context, te
 
 // NotificationHistory https://developer.apple.com/documentation/appstoreserverapi/request_a_test_notification?changes=latest_minor
 func (s *NotificationsService) NotificationHistory(ctx context.Context, params *NotificationHistoryRequest) (*NotificationHistoryResponse, *Response, error) {
-	HostProduction := "https://api.appstoreconnect.apple.com"
+	HostProduction := "https://api.storekit.itunes.apple.com"
 	url := HostProduction + "/inApps/v1/notifications/history"
 	res := new(NotificationHistoryResponse)
 	resp, err := s.client.post(ctx, url, nil, res)
