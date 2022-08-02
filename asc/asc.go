@@ -65,6 +65,7 @@ type Client struct {
 	Submission   *SubmissionService
 	TestFlight   *TestflightService
 	Users        *UsersService
+	Notications  *NotificationsService
 }
 
 // NewClient creates a new Client instance.
@@ -96,6 +97,7 @@ func NewClient(httpClient *http.Client) *Client {
 	c.Submission = (*SubmissionService)(&c.common)
 	c.TestFlight = (*TestflightService)(&c.common)
 	c.Users = (*UsersService)(&c.common)
+	c.Notications = (*NotificationsService)(&c.common)
 
 	return c
 }
